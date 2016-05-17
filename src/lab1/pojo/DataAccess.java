@@ -1,5 +1,7 @@
 package lab1.pojo;
 
+import javafx.scene.chart.PieChart;
+
 import java.io.*;
 
 /**
@@ -9,10 +11,17 @@ public class DataAccess {
     //    private String content;
     // chemin d acces au fichier
     private String fileName;
+    private static DataAccess dataAccess;
 
-    public DataAccess(String fileName){
+    private DataAccess(String fileName){
         this.fileName = fileName;
 
+    }
+    public static DataAccess getInstanceOf(String fileName){
+        if(dataAccess == null){
+            dataAccess = new DataAccess(fileName);
+        }
+        return dataAccess;
     }
 
     public String read() throws IOException {
