@@ -20,35 +20,13 @@ public class ApplicationNoThread {
         // ecrire 1000 lignes en debut de fichier de type numero ligne = getRandomString
         // chaque nouvelle ligne est au dessus de la precedente
         DataModel writer1 = new DataModel("writer1");
-        ApplicationNoThread.writeLines(writer1, fileName, lines, true);
+        writer1.writeLines(fileName, lines, true);
 
 
         // creer un objet DataModel writer 2
         // ecrire 1000 lignes en fin de fichier de type numero ligne = getRandomString
         // chaque nouvelle ligne est en dessous de la precedente
         DataModel writer2 = new DataModel("writer2");
-        ApplicationNoThread.writeLines(writer2, fileName, lines, false);
-    }
-    public static void writeLines(DataModel writer, String fileName, int lines, boolean left){
-        DataAccess da = DataAccess.getInstanceOf(fileName);
-        String text = "";
-        try {
-            text = da.read();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for(int i = 0; i < lines; i++){
-            if(left){
-                text = writer.getRandomString() + "\n" +  text;
-            }else{
-                text += writer.getRandomString() + "\n";
-            }
-        }
-        try {
-            da.write(text);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        writer2.writeLines(fileName, lines, false);
     }
 }
