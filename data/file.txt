@@ -1,0 +1,11 @@
+writer1 16
+writer1 0
+writer1 82
+writer1 51
+writer1 42
+writer1 54
+writer1 95
+writer1 34
+writer1 0
+writer1 14
+nouveau testwriter1 22writer1 93writer1 5writer1 46writer1 20writer1 32writer1 95writer1 2writer1 76writer1 50

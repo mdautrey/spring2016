@@ -21,15 +21,17 @@ public class DataAccess {
         FileReader in = new FileReader(fileName);
         BufferedReader br = new BufferedReader(in);
 
-        while (br.readLine() != null) {
-            text+= br.readLine();
+        String line;
+        while ((line = br.readLine()) != null) {
+            text+= line;
         }
         in.close();
         return text;
     }
     public void write(String text) throws IOException {
-        FileWriter out = new FileWriter(fileName);
-        out.write(text);
+        PrintWriter out = new PrintWriter(fileName);
+        out.print(text);
+        out.close();
 
     }
     public DataAccess getInstance(String file){
@@ -48,5 +50,24 @@ public class DataAccess {
     }
     public void flushCache(){
         // ecrit le cache dans le fichier
+    }
+    public static void main(String args[]){
+        String fileName = "file.txt";
+        DataAccess da = new DataAccess(fileName);
+        try {
+            System.out.println(da.read());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            da.write("\nnouveau test\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            System.out.println(da.read());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -42,8 +42,13 @@ public void testGetName() throws Exception {
 * 
 */ 
 @Test
-public void testSetName() throws Exception { 
-//TODO: Test goes here... 
+public void testSetName() throws Exception {
+    DataModel dm = new DataModel("toto");
+    // avant
+    Assert.assertEquals(dm.getName(), "toto");
+    dm.setName("tutu");
+    Assert.assertEquals(dm.getName(), "tutu");
+
 } 
 
 /** 
