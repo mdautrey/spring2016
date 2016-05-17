@@ -19,14 +19,14 @@ public class ApplicationNoThread {
         // creer un objet DataModel writer 1
         // ecrire 1000 lignes en debut de fichier de type numero ligne = getRandomString
         // chaque nouvelle ligne est au dessus de la precedente
-        DataModel writer1 = new DataModel("writer1");
+        DataModel writer1 = new DataModel("writer1", fileName);
         writer1.writeLines(fileName, lines, true);
 
 
         // creer un objet DataModel writer 2
         // ecrire 1000 lignes en fin de fichier de type numero ligne = getRandomString
         // chaque nouvelle ligne est en dessous de la precedente
-        DataModel writer2 = new DataModel("writer2");
+        DataModel writer2 = new DataModel("writer2", fileName);
         writer2.writeLines(fileName, lines, false);
     }
 }

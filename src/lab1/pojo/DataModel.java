@@ -7,7 +7,7 @@ import java.io.IOException;
  */
 public class DataModel {
     private String name;
-    DataAccess dataAccess;
+    DataAccessInterface dataAccess;
 
 
     // constructeur
