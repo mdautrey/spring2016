@@ -9,6 +9,7 @@ public class ApplicationNoThread {
         // ecrire 1000 lignes en debut de fichier de type numero ligne = getRandomString
         // chaque nouvelle ligne est au dessus de la precedente
 
+
         // creer un objet DataModel writer 2
         // ecrire 1000 lignes en fin de fichier de type numero ligne = getRandomString
         // chaque nouvelle ligne est en dessous de la precedente
