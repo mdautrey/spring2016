@@ -46,9 +46,6 @@ public class DataModel {
 
     }
 
-
-
-
     public static void main(String args[]){
         DataModel dm = new DataModel("test", "file.txt");
         for(int i = 0; i < 10; i++){
