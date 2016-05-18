@@ -1,11 +1,8 @@
 package lab1.pojo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.IOException;
 
 /**
  * Created by mdautrey on 17/05/16.
