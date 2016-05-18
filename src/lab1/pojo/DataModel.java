@@ -15,7 +15,6 @@ public class DataModel {
 
     public DataModel(DataAccessInterface dataAccess){
         this.dataAccess = dataAccess;
-        this.name = "test";
     }
 
     public DataModel() {
