@@ -9,7 +9,6 @@ import java.io.IOException;
 /**
  * Created by mdautrey on 17/05/16.
  */
-@Component
 public class DataModel {
     private String name = "test";
     private DataAccessInterface dataAccess;
