@@ -1,28 +1,19 @@
 package lab1.pojo;
 
-import javafx.scene.chart.PieChart;
+import org.springframework.stereotype.Component;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-/**
- * Created by mdautrey on 17/05/16.
- */
+
+@Component
 public class DataAccess implements DataAccessInterface {
     //    private String content;
     // chemin d acces au fichier
-    private String fileName;
-    private static DataAccess dataAccess;
+    private String fileName = "file.txt";
 
-    private DataAccess(String fileName){
-        this.fileName = fileName;
-
-    }
-    public static DataAccess getInstanceOf(String fileName){
-        if(dataAccess == null){
-            dataAccess = new DataAccess(fileName);
-        }
-        return dataAccess;
-    }
 
     public String read() throws IOException {
         // Todo : renvoyer le contenu du fichier texte sous forme d'une String
@@ -32,7 +23,7 @@ public class DataAccess implements DataAccessInterface {
 
         String line;
         while ((line = br.readLine()) != null) {
-            text+= line;
+            text+= line + "\n";
         }
         in.close();
         return text;
@@ -59,24 +50,5 @@ public class DataAccess implements DataAccessInterface {
     }
     public void flushCache(){
         // ecrit le cache dans le fichier
-    }
-    public static void main(String args[]){
-        String fileName = "file.txt";
-        DataAccess da = new DataAccess(fileName);
-        try {
-            System.out.println(da.read());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            da.write("\nnouveau test\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            System.out.println(da.read());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

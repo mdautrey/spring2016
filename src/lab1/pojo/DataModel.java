@@ -1,21 +1,27 @@
 package lab1.pojo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 
 /**
  * Created by mdautrey on 17/05/16.
  */
+@Component
 public class DataModel {
-    private String name;
-    DataAccessInterface dataAccess;
+    private String name = "test";
+    private DataAccessInterface dataAccess;
 
-
-    // constructeur
-    public DataModel(String name, String fileName){
-
-        this.name = name;
-        this.dataAccess = DataAccess.getInstanceOf(fileName);
+    public DataModel(DataAccessInterface dataAccess){
+        this.dataAccess = dataAccess;
+        this.name = "test";
     }
+
+    public DataModel() {
+    }
+
     public String getName(){ return this.name; }
     public void setName(String name){ this.name = name;}
     public String getRandomString(){
@@ -33,7 +39,7 @@ public class DataModel {
         }
         for(int i = 0; i < lines; i++){
             if(left){
-                text = this.getRandomString() + "\n" +  text;
+                text = "\n" + this.getRandomString()  +  text;
             }else{
                 text += this.getRandomString() + "\n";
             }
@@ -45,13 +51,5 @@ public class DataModel {
         }
 
     }
-
-    public static void main(String args[]){
-        DataModel dm = new DataModel("test", "file.txt");
-        for(int i = 0; i < 10; i++){
-            System.out.println(dm.getRandomString());
-        }
-    }
-
 
 }
